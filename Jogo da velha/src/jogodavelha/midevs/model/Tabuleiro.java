@@ -60,4 +60,13 @@ public class Tabuleiro {
     public char[][] getMatriz() {
         return matriz;
     }
+
+    //Colocar valores na matriz
+    public void setMatriz(char[][] matriz) {
+       while ()
+    }
+
+    public boolean jogar(int linha, int coluna) {
+       return matriz[linha][coluna] == ' ';
+    }
 }
