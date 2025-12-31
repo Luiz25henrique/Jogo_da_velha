@@ -1,35 +1,63 @@
 package jogodavelha.midevs.model;
 
 public class Tabuleiro {
-    static final int TAMANHO_TABULEIRO = 3;
 
-    static final char [] [] tabuleiro = new char[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
+   private int linha;
+   private int coluna;
+   private char [] [] matriz;
 
-    public Tabuleiro() {
-        inicializar();
-    }
+   public Tabuleiro(int linha, int coluna) {
+       this.linha = linha;
+       this.coluna = coluna;
 
-    private void inicializar() {
-        for (int linha = 0; linha < tabuleiro.length; linha++) {
-            for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-                tabuleiro[linha][coluna] = ' ';
-            }
+       this.matriz = new char[linha][coluna];
+
+       limparTabuleiro();
+   }
+
+   private void limparTabuleiro() {
+       for (int i = 0; i < linha; i++) {
+           for (int j = 0; j < coluna; j++) {
+               matriz[i][j] = ' ';
+           }
+       }
+   }
+
+    public void exibirTabuleiro() {
+        System.out.println();
+
+        System.out.print("    ");
+        for (int j = 0; j < coluna; j++) {
+            System.out.print(j+1 + "   ");
         }
-    }
-    public void imprimirTabuleiro() {
-        for (int linha = 0; linha < tabuleiro.length; linha++) {
-            for (int coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
-                System.out.print(" " + tabuleiro[linha][coluna] + " ");
+        System.out.println("\n");
 
-                if (coluna < tabuleiro[linha].length - 1) {
+        for (int i = 0; i < linha; i++) {
+
+            System.out.print(i+1 + "  ");
+
+            for (int j = 0; j < coluna; j++) {
+                System.out.print(" " + matriz[i][j] + " ");
+
+                if (j < coluna - 1) {
                     System.out.print("|");
                 }
             }
+
             System.out.println();
 
-            if (linha < tabuleiro.length - 1) {
-                System.out.println("---|---|---");
+            if (i < this.linha - 1) {
+                System.out.print("   ");
+                for (int k = 0; k < (this.coluna * 4) - 1; k++) {
+                    System.out.print("-");
+                }
+                System.out.println();
             }
         }
+        System.out.println();
+    }
+
+    public char[][] getMatriz() {
+        return matriz;
     }
 }
