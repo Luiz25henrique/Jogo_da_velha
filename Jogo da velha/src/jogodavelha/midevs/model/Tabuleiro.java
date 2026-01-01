@@ -3,12 +3,14 @@ import java.util.ArrayList;
 
 public class Tabuleiro {
 
-   private int linha;
-   private int coluna;
+   private final int linha;
+   private final int coluna;
+
    private final Character [] [] matriz;
 
    public Tabuleiro(int linha, int coluna) {
 
+       //Formando tabuleiro
        if (linha <0 || coluna <0) {
            throw new IllegalArgumentException("Dimensões não estão validas");
        }
