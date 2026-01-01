@@ -1,11 +1,9 @@
 package jogodavelha.midevs.model;
-import java.util.ArrayList;
 
 public class Tabuleiro {
 
    private final int linha;
    private final int coluna;
-   private final String simbolo = "XOUC";
 
    private final Character [] [] matriz;
 
@@ -68,7 +66,7 @@ public class Tabuleiro {
         System.out.println();
     }
 
-    public boolean jogar(int linha, int coluna) {
+    private boolean jogar(int linha, int coluna) {
         return matriz[linha][coluna] == '\u0000';
     }
 
@@ -76,7 +74,7 @@ public class Tabuleiro {
     public boolean realizarJogada(int linha, int coluna, char simbolo) {
 
         if (linha < 0 || linha >= this.linha  || coluna < 0 || coluna >= this.coluna ) {
-            System.out.println("Posisão não existente!!");
+            System.out.println("Posição não existente!!");
             return false;
         }
 
