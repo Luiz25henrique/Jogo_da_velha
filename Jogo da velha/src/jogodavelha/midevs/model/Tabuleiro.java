@@ -26,7 +26,7 @@ public class Tabuleiro {
    private void limparTabuleiro() {
        for (int i = 0; i < linha; i++) {
            for (int j = 0; j < coluna; j++) {
-               matriz[i][j] = ' ';
+               matriz[i][j] = '\u0000';
            }
        }
    }
@@ -85,6 +85,6 @@ public class Tabuleiro {
     }
 
     public boolean jogar(int linha, int coluna) {
-       return matriz[linha][coluna] == ' ';
+       return matriz[linha][coluna] == '\u0000';
     }
 }
