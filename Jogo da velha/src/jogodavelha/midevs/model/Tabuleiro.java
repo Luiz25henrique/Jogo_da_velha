@@ -5,6 +5,7 @@ public class Tabuleiro {
 
    private final int linha;
    private final int coluna;
+   private final String simbolo = "XOUC";
 
    private final Character [] [] matriz;
 
@@ -45,7 +46,9 @@ public class Tabuleiro {
             System.out.print(i+1 + "  ");
 
             for (int j = 0; j < coluna; j++) {
-                System.out.print(" " + matriz[i][j] + " ");
+                char limpezaDeSimbolo = (matriz[i][j] == '\u0000') ? ' ' : matriz[i][j];
+
+                System.out.print(" " + limpezaDeSimbolo + " ");
 
                 if (j < coluna - 1) {
                     System.out.print("|");
@@ -65,18 +68,21 @@ public class Tabuleiro {
         System.out.println();
     }
 
-
+    public boolean jogar(int linha, int coluna) {
+        return matriz[linha][coluna] == '\u0000';
+    }
 
     // Verificar se o tabuleiro está vazio e add valor nele.
-    public boolean realizarJogada(int linha, int coluna) {
+    public boolean realizarJogada(int linha, int coluna, char simbolo) {
 
         if (linha < 0 || linha >= this.linha  || coluna < 0 || coluna >= this.coluna ) {
             System.out.println("Posisão não existente!!");
             return false;
         }
 
-            if (matriz[this.linha][this.coluna] == '\u0000') {
-                matriz[this.linha][this.coluna] = 'x';
+
+            if (jogar(linha, coluna)) {
+                matriz[linha][coluna] = simbolo;
                 return true;
             } else {
                 System.out.println("Casa ocupada");
@@ -84,7 +90,5 @@ public class Tabuleiro {
             }
     }
 
-    public boolean jogar(int linha, int coluna) {
-       return matriz[linha][coluna] == '\u0000';
-    }
+
 }
