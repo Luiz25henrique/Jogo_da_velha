@@ -1,16 +1,22 @@
 package jogodavelha.midevs.model;
+import java.util.ArrayList;
 
 public class Tabuleiro {
 
    private int linha;
    private int coluna;
-   private char [] [] matriz;
+   private final Character [] [] matriz;
 
    public Tabuleiro(int linha, int coluna) {
+
+       if (linha <0 || coluna <0) {
+           throw new IllegalArgumentException("Dimensões não estão validas");
+       }
+
        this.linha = linha;
        this.coluna = coluna;
 
-       this.matriz = new char[linha][coluna];
+       this.matriz = new Character[linha][coluna];
 
        limparTabuleiro();
    }
@@ -57,13 +63,23 @@ public class Tabuleiro {
         System.out.println();
     }
 
-    public char[][] getMatriz() {
-        return matriz;
-    }
 
-    //Colocar valores na matriz
-    public void setMatriz(char[][] matriz) {
-       while ()
+
+    // Verificar se o tabuleiro está vazio e add valor nele.
+    public boolean realizarJogada(int linha, int coluna) {
+
+        if (linha < 0 || linha >= this.linha  || coluna < 0 || coluna >= this.coluna ) {
+            System.out.println("Posisão não existente!!");
+            return false;
+        }
+
+            if (matriz[this.linha][this.coluna] == '\u0000') {
+                matriz[this.linha][this.coluna] = 'x';
+                return true;
+            } else {
+                System.out.println("Casa ocupada");
+                return false;
+            }
     }
 
     public boolean jogar(int linha, int coluna) {
