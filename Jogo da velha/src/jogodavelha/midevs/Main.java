@@ -10,7 +10,7 @@ public class Main {
 
         tabuleiro.exibirTabuleiro();
 
-        tabuleiro.realizarJogada(1, 1, 'X' );
+        tabuleiro.realizarJogada(1, 1, 'o' );
 
 
 

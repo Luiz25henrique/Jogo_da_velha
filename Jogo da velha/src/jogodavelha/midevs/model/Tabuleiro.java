@@ -25,7 +25,7 @@ public class Tabuleiro {
    private void limparTabuleiro() {
        for (int i = 0; i < linha; i++) {
            for (int j = 0; j < coluna; j++) {
-               matriz[i][j] = '\u0000';
+               matriz[i][j] = null;
            }
        }
    }
@@ -44,7 +44,7 @@ public class Tabuleiro {
             System.out.print(i+1 + "  ");
 
             for (int j = 0; j < coluna; j++) {
-                char limpezaDeSimbolo = (matriz[i][j] == '\u0000') ? ' ' : matriz[i][j];
+                char limpezaDeSimbolo = (matriz[i][j] == null) ? ' ' : matriz[i][j];
 
                 System.out.print(" " + limpezaDeSimbolo + " ");
 
@@ -67,7 +67,7 @@ public class Tabuleiro {
     }
 
     private boolean jogar(int linha, int coluna) {
-        return matriz[linha][coluna] == '\u0000';
+        return matriz[linha][coluna] == null;
     }
 
     // Verificar se o tabuleiro está vazio e add valor nele.
