@@ -1,5 +1,7 @@
 package jogodavelha.midevs.model;
 
+import jogodavelha.midevs.util.Mensagens;
+
 public class Tabuleiro {
 
    private final int linha;
@@ -74,7 +76,7 @@ public class Tabuleiro {
     public boolean realizarJogada(int linha, int coluna, char simbolo) {
 
         if (linha < 0 || linha >= this.linha  || coluna < 0 || coluna >= this.coluna ) {
-            System.out.println("Posição não existente!!");
+            System.out.println(Mensagens.MENSAGEM_POSICAO);
             return false;
         }
 
@@ -83,7 +85,7 @@ public class Tabuleiro {
                 matriz[linha][coluna] = simbolo;
                 return true;
             } else {
-                System.out.println("Casa ocupada");
+                System.out.println(Mensagens.OCUPADA);
                 return false;
             }
     }
