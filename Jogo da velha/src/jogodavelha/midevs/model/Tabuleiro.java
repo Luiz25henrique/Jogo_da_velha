@@ -66,7 +66,7 @@ public class Tabuleiro {
         System.out.println();
     }
 
-    private boolean jogar(int linha, int coluna) {
+    private boolean verificaJogada(int linha, int coluna) {
         return matriz[linha][coluna] == null;
     }
 
@@ -79,7 +79,7 @@ public class Tabuleiro {
         }
 
 
-            if (jogar(linha, coluna)) {
+            if (verificaJogada(linha, coluna)) {
                 matriz[linha][coluna] = simbolo;
                 return true;
             } else {
