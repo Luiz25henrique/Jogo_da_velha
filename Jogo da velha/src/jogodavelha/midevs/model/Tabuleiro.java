@@ -13,7 +13,7 @@ public class Tabuleiro {
 
        //Formando tabuleiro
        if (linha <0 || coluna <0) {
-           throw new IllegalArgumentException("Dimensões não estão validas");
+           throw new IllegalArgumentException(Mensagens.ERRO_DIMENSOES);
        }
 
        this.linha = linha;

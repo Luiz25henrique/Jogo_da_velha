@@ -1,5 +1,7 @@
 package jogodavelha.midevs;
 import jogodavelha.midevs.model.Tabuleiro;
+import jogodavelha.midevs.service.Jogador;
+
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +13,10 @@ public class Main {
         tabuleiro.exibirTabuleiro();
 
         tabuleiro.realizarJogada(1, 1, 'o' );
+
+        Jogador jogador = new Jogador();
+        System.out.println(jogador.toString());
+
 
 
 

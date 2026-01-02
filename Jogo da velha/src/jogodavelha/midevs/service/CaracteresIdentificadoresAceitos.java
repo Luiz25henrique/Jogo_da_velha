@@ -1,5 +1,10 @@
 package jogodavelha.midevs.service;
 
-public enum CaracteresIdentificadoresAceitos {
+enum CaracteresIdentificadoresAceitos {
+    u,
+    C,
+    X,
+    O;
+
 
 }
