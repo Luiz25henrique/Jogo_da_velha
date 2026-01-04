@@ -68,7 +68,7 @@ public class Tabuleiro {
         System.out.println();
     }
 
-    private boolean verificaJogada(int linha, int coluna) {
+    public boolean verificaJogada(int linha, int coluna) {
         return matriz[linha][coluna] == null;
     }
 
@@ -82,7 +82,7 @@ public class Tabuleiro {
 
 
             if (verificaJogada(linha, coluna)) {
-                matriz[linha][coluna] = simbolo;
+                matriz[linha-1][coluna-1] = simbolo;
                 return true;
             } else {
                 System.out.println(Mensagens.OCUPADA);

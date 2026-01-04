@@ -1,18 +1,21 @@
 package jogodavelha.midevs.service;
+import jogodavelha.midevs.model.Tabuleiro;
+
+import java.util.Scanner;
 
 public class Partida {
 
-    CaracteresIdentificadoresAceitos usuario = CaracteresIdentificadoresAceitos.USUARIO;
-    CaracteresIdentificadoresAceitos comupador = CaracteresIdentificadoresAceitos.COMPUTADOR;
+    private final Tabuleiro tabuleiro;
 
-    public void Jogando () {
-        SortearJogador sortearJogador = new SortearJogador();
+    public Partida(Tabuleiro tabuleiro) {
+        this.tabuleiro = tabuleiro;
+    }
 
+    //Metodo usado para colocar o valor na matriz
+    public void Jogar (int linha, int coluna, char simbolo) {
+        boolean sucesso = tabuleiro.realizarJogada(linha, coluna, simbolo);
+        tabuleiro.realizarJogada(linha, coluna,simbolo);
 
-        if (sortearJogador.sorteiojogador()) {
-            System.out.println("O primeiro a jogar vai ser " + usuario);
-
-        }
 
     }
 
