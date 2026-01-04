@@ -74,20 +74,42 @@ public class Tabuleiro {
 
     // Verificar se o tabuleiro está vazio e add valor nele.
     public boolean realizarJogada(int linha, int coluna, char simbolo) {
-
-        if (linha < 0 || linha >= this.linha  || coluna < 0 || coluna >= this.coluna ) {
+        int l = linha - 1;
+        int c = coluna -1;
+        if (l < 0 || l >= this.linha  || c < 0 || c >= this.coluna ) {
             System.out.println(Mensagens.MENSAGEM_POSICAO);
             return false;
         }
 
 
-            if (verificaJogada(linha, coluna)) {
-                matriz[linha-1][coluna-1] = simbolo;
+            if (verificaJogada(l, c)) {
+                matriz[l][c] = simbolo;
                 return true;
             } else {
                 System.out.println(Mensagens.OCUPADA);
                 return false;
             }
+    }
+
+    public boolean verificarVencedor() {
+        // Linhas e Colunas
+        for (int i = 0; i < 3; i++) {
+            if (matriz[i][0] != null && matriz[i][0] == matriz[i][1] && matriz[i][0] == matriz[i][2]) return true;
+            if (matriz[0][i] != null && matriz[0][i] == matriz[1][i] && matriz[0][i] == matriz[2][i]) return true;
+        }
+        // Diagonais
+        if (matriz[0][0] != null && matriz[0][0] == matriz[1][1] && matriz[0][0] == matriz[2][2]) return true;
+        if (matriz[0][2] != null && matriz[0][2] == matriz[1][1] && matriz[0][2] == matriz[2][0]) return true;
+        return false;
+    }
+
+    public boolean tabuleiroCheio() {
+        for (int i = 0; i < linha; i++) {
+            for (int j = 0; j < coluna; j++) {
+                if (matriz[i][j] == null) return false;
+            }
+        }
+        return true;
     }
 
 

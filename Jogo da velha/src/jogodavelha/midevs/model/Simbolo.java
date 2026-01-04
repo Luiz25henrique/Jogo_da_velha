@@ -1,20 +1,18 @@
 package jogodavelha.midevs.model;
 
-public enum Caracteres {
-    USUARIO('U'),
-    COMPUTADOR('C'),
-    X('x'),
-    O('o'),
-    VAZIO('-');
-
+public enum Simbolo {
+    X('X'),
+    O('O');
 
     private final char simbolo;
-    Caracteres(char simbolo) {
+
+    private Simbolo(char simbolo) {
         this.simbolo = simbolo;
     }
 
     public char getSimbolo() {
         return simbolo;
     }
+
 
 }
