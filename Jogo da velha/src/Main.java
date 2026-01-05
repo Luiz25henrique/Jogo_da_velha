@@ -2,6 +2,7 @@ import jogodavelha.midevs.model.Simbolo;
 import jogodavelha.midevs.model.Tabuleiro;
 import jogodavelha.midevs.service.Partida;
 import jogodavelha.midevs.service.Skaynet;
+import jogodavelha.midevs.util.Mensagens;
 
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Main {
 
             if (validarFimDeJogo(tabuleiro)) break;
 
-            // VEZ DA SKYNET (Opcional, se quiser jogar contra o PC)
+            // VEZ DA SKYNET
             skynet.vezPc('O');
 
             if (validarFimDeJogo(tabuleiro)) break;
@@ -34,11 +35,11 @@ public class Main {
         boolean jogadaTrue = false;
         while (!jogadaTrue) {
             try {
-                System.out.print("Linha: ");
+                System.out.print(Mensagens.LINHA);
                 int l = scanner.nextInt();
-                System.out.print("Coluna: ");
+                System.out.print(Mensagens.COLUNA);
                 int c = scanner.nextInt();
-                System.out.print("Símbolo (X/O): ");
+                System.out.print(Mensagens.SIMBOLOS);
                 String s = scanner.next();
 
                 jogadaTrue = partida.jogar(l, c, Simbolo.valueOf(s.toUpperCase()));
@@ -52,12 +53,12 @@ public class Main {
     private static boolean validarFimDeJogo(Tabuleiro t) {
         if (t.verificarVencedor()) {
             t.exibirTabuleiro();
-            System.out.println("Fim de jogo! Temos um vencedor.");
+            System.out.println(Mensagens.GAMER_OVER); // Falta colocar nome do vencedor
             return true;
         }
         if (t.tabuleiroCheio()) {
             t.exibirTabuleiro();
-            System.out.println("Empate! Deu velha.");
+            System.out.println(Mensagens.EMPATE);
             return true;
         }
         return false;
